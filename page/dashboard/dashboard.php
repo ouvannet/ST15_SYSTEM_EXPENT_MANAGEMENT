@@ -264,3 +264,5 @@
                     </div>
                 </section>
             </div>
+            <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+            <script src="assets/js/pages/dashboard.js"></script>

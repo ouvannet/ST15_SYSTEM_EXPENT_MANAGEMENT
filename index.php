@@ -19,25 +19,26 @@
 </head>
 
 <body>
+<script src="assets/vendors/jquery/jquery.min.js"></script>
     <div id="app">
         <div id="sidebar" class="active">
         <?php include 'templates/sidebar.php';?>
         </div>
         <div id="main">
             <?php include 'templates/header.php';?>
-            <?php include 'page/dashboard.php';?>
+            <!-- < ?php include 'page/dashboard.php';?> -->
+             <div id='content_page'>
+
+             </div>
             
 
         <?php include 'templates/footer.php';?>
         </div>
     </div>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
-
+    <script src="assets/js/loadpage.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 </body>
 
 </html>

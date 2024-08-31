@@ -20,8 +20,15 @@
             [
                 'type'=>'dynamic',
                 'title'=>'Dashboard',
-                'class'=>'sidebar-item active',
-                'url'=>'index.html',
+                'class'=>'sidebar-item',
+                'url'=>'page/dashboard/dashboard.php',
+                'icon'=>'bi bi-grid-fill',
+            ],
+            [
+                'type'=>'dynamic',
+                'title'=>'User',
+                'class'=>'sidebar-item',
+                'url'=>'page/users/users.php',
                 'icon'=>'bi bi-grid-fill',
             ],
             [
@@ -45,15 +52,16 @@
         ]
 
     ?>
+
     <div class="sidebar-menu">
         <ul class="menu">
-            <?php
+            <!-- < ?php
                 foreach ($menu as $m) {
                     if($m['type']=='static'){
                         echo '<li class="'.$m['class'].'">'.$m['title'].'</li>';
                     }else if($m['type']=='dynamic'){
                         echo '<li class="'.$m['class'].'">';
-                        echo '<a href="'.$m['url'].'" class="sidebar-link">';
+                        echo '<a href="" class="sidebar-link '.($m['url']!='#'?"menu_link":"").'" data-target="'.$m['url'].'">';
                         echo '<i class="'.$m['icon'].'"></i>';
                         echo '<span>'.$m['title'].'</span>';
                         echo '</a>';
@@ -61,7 +69,7 @@
                             echo '<ul class="submenu ">';
                                 foreach ($m['sub_menu'] as $sub) {
                                     echo '<li class="submenu-item">';
-                                        echo '<a href="'.$sub['url'].'">'.$sub['title'].'</a>';
+                                        echo '<a class="'.($m['url']!='#'?"menu_link":"").'" data-target="'.$m['url'].'">'.$sub['title'].'</a>';
                                     echo '</li>';
                                 }
                             echo '</ul>';
@@ -69,7 +77,7 @@
                         echo '</li>';
                     }
                 }
-            ?>
+            ?> -->
             <!-- <li class="sidebar-title">Menu</li>
             <li class="sidebar-item active ">
                 <a href="index.html" class='sidebar-link'>
@@ -385,4 +393,48 @@
         </ul>
     </div>
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    <script>
+        loadMenu();
+        function loadMenu(){
+
+            console.log(<?= json_encode($menu) ?>);
+            var menu='';
+            var active_menu=localStorage.getItem('active_menu');
+            console.log(active_menu);
+            
+            (<?= json_encode($menu) ?>).forEach(m => {
+                console.log((active_menu==m.url?'active':''));
+                if(m.type=='static'){
+                    menu+=`<li class="${m.class}">${m.title}</li>`;
+                }else if(m.type=='dynamic'){
+                    menu+=`
+                        <li class="${m.class+' '+(active_menu==m.url?'active':'')}">
+                            <a href="" class="sidebar-link ${m.url!='#'?'menu_link':''}" data-target="${m.url}">
+                            <i class="${m.icon}"></i>
+                            <span>${m.title}</span>
+                            </a>`;
+                            try {
+                                if(m.sub_menu){
+                                    menu+=`<ul class="submenu ">`;
+                                        (m.sub_menu).forEach(subm => {
+                                            menu+=`
+                                                <li class="submenu-item">
+                                                    <a class="${subm.url!='#'?"menu_link":""}" data-target="${subm.url}">${subm.title}</a>
+                                                </li>
+                                            `;
+                                        });
+                                    menu+=`</ul>`;
+                                }
+                            } catch (error) {
+                                
+                            }
+                    menu+=`</li>`;
+                }
+                
+            });
+            console.log(menu);
+            $(".menu").html(menu);
+        }
+        
+    </script>
 </div>
