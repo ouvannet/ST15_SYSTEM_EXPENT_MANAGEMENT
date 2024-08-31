@@ -31,24 +31,24 @@
                 'url'=>'page/users/users.php',
                 'icon'=>'bi bi-grid-fill',
             ],
-            [
-                'type'=>'dynamic',
-                'title'=>'Components',
-                'class'=>'sidebar-item has-sub',
-                'url'=>'#',
-                'icon'=>'bi bi-stack',
-                'sub_menu'=>[
-                    [
-                        'title'=>'Alert',
-                        'url'=>'component-alert.html'
-                    ],
-                    [
-                        'title'=>'Badge',
-                        'url'=>'component-badge.html'
-                    ]
+            // [
+            //     'type'=>'dynamic',
+            //     'title'=>'Components',
+            //     'class'=>'sidebar-item has-sub',
+            //     'url'=>'#',
+            //     'icon'=>'bi bi-stack',
+            //     'sub_menu'=>[
+            //         [
+            //             'title'=>'Alert',
+            //             'url'=>'component-alert.html'
+            //         ],
+            //         [
+            //             'title'=>'Badge',
+            //             'url'=>'component-badge.html'
+            //         ]
                     
-                ]
-            ]
+            //     ]
+            // ]
         ]
 
     ?>
