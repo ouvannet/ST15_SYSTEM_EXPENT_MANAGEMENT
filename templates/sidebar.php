@@ -31,6 +31,14 @@
                 'url'=>'page/users/users.php',
                 'icon'=>'bi bi-grid-fill',
             ],
+
+            [
+                'type'=>'dynamic',
+                'title'=>'Category',
+                'class'=>'sidebar-item',
+                'url'=>'page/categories/categories.php',
+                'icon'=>'bi bi-grid-fill',
+            ],
             // [
             //     'type'=>'dynamic',
             //     'title'=>'Components',
@@ -49,6 +57,11 @@
                     
             //     ]
             // ]
+
+
+
+
+
         ]
 
     ?>

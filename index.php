@@ -1,9 +1,10 @@
 <?php session_start(); ?>
-<?php if(!isset($_SESSION['user_login'])){ ?>
-    <?php include 'page/auth/login/index.php';?>
-<?php }else{ ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php if (!isset($_SESSION['user_login'])) { ?>
+    <?php include 'page/auth/login/index.php'; ?>
+<?php } else { ?>
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,20 +23,21 @@
     </head>
 
     <body>
-    <script src="assets/vendors/jquery/jquery.min.js"></script>
+        <script src="assets/vendors/jquery/jquery.min.js"></script>
         <div id="app">
             <div id="sidebar" class="active">
-            <?php include 'templates/sidebar.php';?>
+                <?php include 'templates/sidebar.php'; ?>
             </div>
             <div id="main">
-                <?php include 'templates/header.php';?>
+
+                <?php include 'templates/header.php'; ?>
                 <!-- < ?php include 'page/dashboard.php';?> -->
                 <div id='content_page'>
-
+                    <?php include 'page/category.php'; ?>
                 </div>
-                
 
-            <?php include 'templates/footer.php';?>
+
+                <?php include 'templates/footer.php'; ?>
             </div>
         </div>
         <script src="assets/js/loadpage.js"></script>
@@ -43,5 +45,6 @@
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     </body>
-</html>
+
+    </html>
 <?php } ?>
