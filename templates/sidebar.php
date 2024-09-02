@@ -39,6 +39,8 @@
                 'url'=>'page/categories/categories.php',
                 'icon'=>'bi bi-grid-fill',
             ],
+     
+
             // [
             //     'type'=>'dynamic',
             //     'title'=>'Components',

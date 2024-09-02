@@ -33,7 +33,7 @@
                 <?php include 'templates/header.php'; ?>
                 <!-- < ?php include 'page/dashboard.php';?> -->
                 <div id='content_page'>
-                    <?php include 'page/category.php'; ?>
+                   
                 </div>
 
 

@@ -1,30 +1,25 @@
 <?php
-session_start();
+session_start(); // Start the session
 
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoryName = $_POST['categoryName'];
     $categoryDate = $_POST['categoryDate'];
 
-    // Check if the session is working correctly
+    // Initialize categories array in session if it doesn't exist
     if (!isset($_SESSION['categories'])) {
         $_SESSION['categories'] = [];
     }
 
-    $categories = $_SESSION['categories'];
-
-    $categories[] = [
-        'id' => count($categories) + 1,
+    // Add new category to the session
+    $_SESSION['categories'][] = [
+        'id' => count($_SESSION['categories']) + 1, // Automatically incrementing ID
         'name' => $categoryName,
         'date' => $categoryDate,
     ];
 
-    $_SESSION['categories'] = $categories;
 
-    echo "Category added successfully!";
-    
-    // Redirect
-    header('Location: categories.php');
+    // Redirect to index.php
+    header('Location: index.php');
     exit();
-} else {
-    echo "Invalid request method.";
 }
