@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include 'includes/db_connect.php'; ?>
 <?php if (!isset($_SESSION['user_login'])) { ?>
     <?php include 'page/auth/login/index.php'; ?>
 <?php } else { ?>
